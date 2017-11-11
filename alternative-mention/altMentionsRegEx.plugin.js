@@ -43,16 +43,11 @@ class altmention {
 	processChat() {
 		setTimeout(function() {
 			$(".chat .content .messages-wrapper .messages .message-group .comment .message .message-text .markup:not(pre), .chat .content .messages-wrapper .messages .message-group .comment .message .message-text .markup:not(code)").each((i, e) => {
-				const tagRegex = /(?:\bXD\b)/igm;
-				const aliTest = /((?:\b(?:ali|poodle|alipoodle))[^a-z]([ @:_\-"\,!\+.~?&//=]?){1})|(alipoodle\b)|(\bali\b)/;
-				const html = $(e).html();
-				/*if(tagRegex.test(html)) {
-					$(e).html(html.replace(tagRegex, 'I\'m a retard lol.'));
-				}*/
+				const RegEx = /((?:\b(?:ali|poodle|alipoodle))[^a-z]([ @:_\-"\,!\+.~?&//=]?){1})|(alipoodle\b)|(\bali\b)/;
 				
 				var t = $(e);
-				if (html.indexOf('bdhl') == -1) {
-					if (aliTest.test(t.text().toLowerCase())) {
+				if (t.html().indexOf('bdhl') == -1) {
+					if (RegEx.test(t.text().toLowerCase())) {
 						t.addClass("bdhl");
 						t.closest(".message").addClass("mentioned");
 					}
@@ -75,7 +70,7 @@ class altmention {
 	}
 
   getAuthor() {
-		return 'Alipoodle / Arashiryuu'; 
+		return 'Alipoodle (Edit of Arashiryuu\'s killxd)'; 
 	}
 
   getVersion() {
@@ -87,7 +82,7 @@ class altmention {
 	}
 
   getSettingsPanel() {
-		return 'owo, you found this fake settings.'; 
+		// return 'owo, you found this fake settings.'; 
 	}
 };
 /*@end@*/
